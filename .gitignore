@@ -1,0 +1,18 @@
+# Credenciales y configuración del entorno local (nunca se publican)
+.env
+config/config.php
+
+# Logs
+*.log
+logs/
+
+# Dependencias de Composer
+/vendor/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
