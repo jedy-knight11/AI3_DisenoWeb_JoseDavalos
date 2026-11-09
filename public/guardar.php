@@ -34,7 +34,7 @@ try {
 
     $repositorio->crear($datos);
     guardarFlash('exito', 'Cliente registrado correctamente.');
-    redirigir('index.php');
+    redirigir('listado.php');
 } catch (PDOException $error) {
     guardarFlash('anteriores', $anteriores);
 

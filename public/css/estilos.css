@@ -206,6 +206,70 @@ textarea:user-invalid,
     background-color: #fff;
 }
 
+/* Tabla de registros */
+.panel-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.panel-cabecera .boton {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.vacio {
+    padding: 2rem 0;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.tabla th,
+.tabla td {
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid var(--borde);
+    text-align: left;
+    vertical-align: top;
+}
+
+.tabla th {
+    background-color: var(--superficie-alta);
+    color: var(--dorado);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.tabla tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.celda-mensaje {
+    min-width: 220px;
+    max-width: 320px;
+    overflow-wrap: anywhere;
+}
+
 .pie {
     padding: 1.25rem 0;
     border-top: 1px solid var(--borde);
@@ -217,6 +281,50 @@ textarea:user-invalid,
 @media (max-width: 640px) {
     .formulario {
         grid-template-columns: 1fr;
+    }
+
+    /* En celular cada registro se muestra como una tarjeta */
+    .tabla-contenedor {
+        overflow: visible;
+        border: none;
+    }
+
+    .tabla thead {
+        display: none;
+    }
+
+    .tabla,
+    .tabla tbody,
+    .tabla tr,
+    .tabla td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla tr {
+        margin-bottom: 0.75rem;
+        border: 1px solid var(--borde);
+        border-radius: 10px;
+        background-color: var(--superficie-alta);
+    }
+
+    .tabla td {
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        gap: 0.5rem;
+        padding: 0.45rem 0.85rem;
+        border-bottom: none;
+    }
+
+    .tabla td::before {
+        content: attr(data-titulo);
+        color: var(--texto-suave);
+        font-weight: 600;
+    }
+
+    .celda-mensaje {
+        min-width: 0;
+        max-width: none;
     }
 
     .panel {

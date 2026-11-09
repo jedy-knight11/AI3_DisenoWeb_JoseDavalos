@@ -43,6 +43,24 @@ final class ClienteRepositorio
         return (int) $this->pdo->lastInsertId();
     }
 
+    /**
+     * Devuelve los clientes con el nombre de su servicio, del más reciente al más antiguo.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listar(): array
+    {
+        $sql = 'SELECT c.id, c.nombres, c.correo, c.telefono, c.empresa, s.nombre AS servicio,
+                       c.mensaje, c.fecha_creacion
+                FROM clientes AS c
+                INNER JOIN servicios AS s ON s.id = c.servicio_id
+                ORDER BY c.fecha_creacion DESC, c.id DESC';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     // Los campos opcionales vacíos se guardan como NULL y no como cadena vacía
     private function vincularOpcional(PDOStatement $stmt, string $parametro, string $valor): void
     {

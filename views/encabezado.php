@@ -17,6 +17,7 @@
             <a href="index.php" class="marca">Registro de <span class="resaltado">clientes</span></a>
             <nav class="nav" aria-label="Navegación principal">
                 <a href="index.php" class="nav-enlace<?= $paginaActual === 'formulario' ? ' activo' : '' ?>">Registrar</a>
+                <a href="listado.php" class="nav-enlace<?= $paginaActual === 'listado' ? ' activo' : '' ?>">Clientes registrados</a>
             </nav>
         </div>
     </header>
